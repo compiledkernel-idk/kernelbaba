@@ -1,0 +1,18 @@
+{
+  "owner": {
+    "password": "Berkaykaplan@12",
+    "role": "owner"
+  },
+  "test": {
+    "password": "test",
+    "role": "user"
+  },
+  "piet": {
+    "password": "piet",
+    "role": "user"
+  },
+  "testuser": {
+    "password": "test",
+    "role": "user"
+  }
+}

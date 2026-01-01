@@ -1,0 +1,143 @@
+{
+    "meta": {
+        "title": "KERNELBABA",
+        "description": "Kernelbaba - Software & Projecten"
+    },
+    "hero": {
+        "badge": "",
+        "title": [
+            "KERNEL",
+            "BABA"
+        ],
+        "subtitle": "Software, games en tools.",
+        "subtitleHighlight": "Open source.",
+        "ctaPrimary": "Projecten",
+        "ctaSecondary": "GitHub",
+        "githubUrl": "https://github.com/compiledkernel-idk",
+        "scrollText": "Scroll"
+    },
+    "about": {
+        "sectionNumber": "01",
+        "sectionTitle": "Over Mij",
+        "intro": "Ik ben <span class=\"text-gradient\">Kernelbaba</span>.",
+        "paragraphs": [
+            "Ik deel software, games en tools op GitHub.",
+            "Van package managers tot games in Assembly."
+        ],
+        "stats": [
+            {
+                "value": "20+",
+                "label": "Repos"
+            },
+            {
+                "value": "Rust",
+                "label": "Focus"
+            },
+            {
+                "value": "NL",
+                "label": "Locatie"
+            }
+        ]
+    },
+    "github": {
+        "username": "compiledkernel-idk",
+        "profileUrl": "https://github.com/compiledkernel-idk"
+    },
+    "projects": {
+        "sectionNumber": "02",
+        "sectionTitle": "Projecten",
+        "featured": {
+            "title": "Pacboost",
+            "description": "Extreem snelle front-end voor de pacman package manager.",
+            "tags": [
+                "Rust",
+                "CLI",
+                "Arch Linux"
+            ],
+            "stars": 12,
+            "language": "Rust",
+            "link": "https://github.com/compiledkernel-idk/pacboost"
+        },
+        "items": [
+            {
+                "title": "Void-Drifter",
+                "description": "3D space shooter game gemaakt met x86-64 assembly.",
+                "tags": [
+                    "Assembly",
+                    "Game"
+                ],
+                "stars": 2,
+                "language": "Assembly",
+                "link": "https://github.com/compiledkernel-idk/Void-Drifter"
+            },
+            {
+                "title": "kdownload",
+                "description": "Razendsnelle download manager geschreven in Rust.",
+                "tags": [
+                    "Rust",
+                    "CLI"
+                ],
+                "stars": 2,
+                "language": "Rust",
+                "link": "https://github.com/compiledkernel-idk/kdownload"
+            },
+            {
+                "title": "DarkFox",
+                "description": "Performance-focused browser gebaseerd op Firefox Gecko.",
+                "tags": [
+                    "Shell",
+                    "Privacy"
+                ],
+                "stars": 1,
+                "language": "Shell",
+                "link": "https://github.com/compiledkernel-idk/DarkFox"
+            },
+            {
+                "title": "barraOS",
+                "description": "Source code van barraOS.",
+                "tags": [
+                    "C",
+                    "OS"
+                ],
+                "stars": 1,
+                "language": "C",
+                "link": "https://github.com/compiledkernel-idk/barraos"
+            },
+            {
+                "title": "Bas Veeg Arc",
+                "description": "Actie game gemaakt voor Bas.",
+                "tags": [
+                    "Rust",
+                    "Bevy",
+                    "Game"
+                ],
+                "stars": 0,
+                "language": "Rust",
+                "link": "https://github.com/compiledkernel-idk/bas-veeg-arc"
+            }
+        ]
+    },
+    "footer": {
+        "brand": "KERNELBABA",
+        "tagline": "Open source",
+        "links": [
+            {
+                "text": "Home",
+                "href": "#hero"
+            },
+            {
+                "text": "Over",
+                "href": "#about"
+            },
+            {
+                "text": "Projecten",
+                "href": "#projects"
+            },
+            {
+                "text": "GitHub",
+                "href": "https://github.com/compiledkernel-idk"
+            }
+        ],
+        "copyright": "© 2026 Kernelbaba"
+    }
+}
