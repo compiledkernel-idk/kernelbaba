@@ -19,7 +19,9 @@ const MAX_HISTORY = 50;
 const bannedIPs = new Set();
 // Timeouts: { username: timestamp_until }
 let timeouts = {};
-const USERS_FILE = 'users.json';
+
+// Use /tmp for writable storage on cloud platforms (ephemeral but writable)
+const USERS_FILE = path.join('/tmp', 'users.json');
 
 // Active activeSessions: { socketId: { username, role, ip } }
 let users = {};
@@ -28,14 +30,24 @@ let accounts = {};
 
 // Load accounts
 if (fs.existsSync(USERS_FILE)) {
-    try { accounts = JSON.parse(fs.readFileSync(USERS_FILE, 'utf8')); } catch (e) { }
+    try { 
+        accounts = JSON.parse(fs.readFileSync(USERS_FILE, 'utf8')); 
+        console.log("Loaded accounts from " + USERS_FILE);
+    } catch (e) { 
+        console.error("Error loading accounts:", e.message);
+    }
 } else {
+    // Initial owner account
     accounts['owner'] = { password: 'Berkaykaplan@12', role: 'owner' };
     saveAccounts();
 }
 
 function saveAccounts() {
-    try { fs.writeFileSync(USERS_FILE, JSON.stringify(accounts, null, 2)); } catch (e) { }
+    try { 
+        fs.writeFileSync(USERS_FILE, JSON.stringify(accounts, null, 2)); 
+    } catch (e) { 
+        console.error("Error saving accounts (running in memory-only mode):", e.message);
+    }
 }
 
 // Routes
