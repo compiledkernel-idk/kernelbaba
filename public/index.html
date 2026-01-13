@@ -1,326 +1,184 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kernelbaba - Software & Projecten">
+    <meta name="description" content="Kernelbaba - Software & Projects">
     <title>KERNELBABA</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- 98.css -->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="icon.svg">
 </head>
 
 <body>
-    <!-- Animated Background -->
-    <div class="background-container">
-        <canvas id="shader-bg"></canvas>
-        <div class="gradient-overlay"></div>
-        <div class="noise-overlay"></div>
-        <div class="grid-overlay"></div>
+    <!-- Top Bar (Taskbar-ish) -->
+    <div class="top-bar">
+        <div class="start-btn-wrapper">
+            <button class="start-btn">
+                <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="logo">
+                <b>Start</b>
+            </button>
+        </div>
+        <div class="lang-selector">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="divider">|</span>
+            <button class="lang-btn" data-lang="nl">NL</button>
+        </div>
+        <div class="clock">12:00 PM</div>
     </div>
-
-    <!-- Cursor Effects -->
-    <div class="cursor-glow" id="cursor-glow"></div>
-    <div class="cursor-trail" id="cursor-trail"></div>
-    <div class="cursor-orb orb-1" id="orb-1"></div>
-    <div class="cursor-orb orb-2" id="orb-2"></div>
-    <div class="cursor-orb orb-3" id="orb-3"></div>
-
-    <!-- Floating Particles -->
-    <div class="particles-container" id="particles"></div>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-line">
-                        <span class="letter" style="--i:0">K</span>
-                        <span class="letter" style="--i:1">E</span>
-                        <span class="letter" style="--i:2">R</span>
-                        <span class="letter" style="--i:3">N</span>
-                        <span class="letter" style="--i:4">E</span>
-                        <span class="letter" style="--i:5">L</span>
-                    </span>
-                    <span class="title-line accent">
-                        <span class="letter" style="--i:6">B</span>
-                        <span class="letter" style="--i:7">A</span>
-                        <span class="letter" style="--i:8">B</span>
-                        <span class="letter" style="--i:9">A</span>
-                    </span>
-                </h1>
-                <p class="hero-subtitle">
-                    Software, games en tools.<br>
-                    <span class="highlight">Open source.</span>
-                </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>Projecten</span>
-                        <svg class="btn-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="https://github.com/compiledkernel-idk" target="_blank" class="btn btn-ghost">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="/chat" class="btn btn-ghost" style="border-color: rgba(168, 85, 247, 0.5);">
-                        <span>Server Chat</span>
-                        <span class="badge-dot" style="margin-left: 4px; background: #22c55e;"></span>
-                    </a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-                <span>Scroll</span>
-            </div>
-        </section>
 
-        <!-- About Section -->
-        <section class="section about" id="about">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">01</span>
-                    <h2 class="section-title">Over Mij</h2>
-                    <div class="section-line"></div>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p class="about-intro">
-                            Ik ben <span class="text-gradient">Kernelbaba</span>.
-                        </p>
-                        <p>
-                            Ik deel software, games en tools op GitHub.
-                        </p>
-                        <p>
-                            Van package managers tot games in Assembly.
-                        </p>
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">20+</span>
-                                <span class="stat-label">Repos</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">Rust</span>
-                                <span class="stat-label">Focus</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">NL</span>
-                                <span class="stat-label">Locatie</span>
-                            </div>
-                        </div>
+        <!-- Welcome Window -->
+        <div class="window-wrapper">
+            <div class="window" style="width: 400px; margin: 0 auto;">
+                <div class="title-bar">
+                    <div class="title-bar-text">Welcome to Kernelbaba</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
                     </div>
-                    <div class="about-visual">
-                        <div class="about-card glass-card">
-                            <div class="card-glow"></div>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span class="code-dot red"></span>
-                                    <span class="code-dot yellow"></span>
-                                    <span class="code-dot green"></span>
-                                    <span class="code-title">terminal</span>
-                                </div>
-                                <pre><code><span class="field">$</span> <span class="keyword">git</span> clone github.com/compiledkernel-idk
-<span class="string">Cloning repositories...</span>
-<span class="field">$</span> <span class="keyword">ls</span>
-<span class="type">pacboost/</span> <span class="type">Void-Drifter/</span> <span class="type">kdownload/</span>
-<span class="type">DarkFox/</span> <span class="type">barraOS/</span> <span class="type">bas-veeg-arc/</span></code></pre>
+                </div>
+                <div class="window-body">
+                    <div class="welcome-content">
+                        <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="PC"
+                            class="welcome-icon">
+                        <div class="welcome-text">
+                            <h4 data-i18n="hero.subtitle">Software, games and tools.</h4>
+                            <p data-i18n="hero.highlight">Open source. Made with ♥</p>
+                            <br>
+                            <div class="field-row" style="justify-content: center">
+                                <a href="#projects" class="button-link">
+                                    <button data-i18n="hero.projects">Projects</button>
+                                </a>
+                                <a href="https://github.com/compiledkernel-idk" target="_blank" class="button-link">
+                                    <button>GitHub</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Projects Section -->
-        <section class="section projects" id="projects">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-number">02</span>
-                    <h2 class="section-title">Projecten</h2>
-                    <div class="section-line"></div>
-                </div>
-
-                <!-- Featured Project -->
-                <article class="project-card featured glass-card" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-tags">
-                                <span class="tag">Rust</span>
-                                <span class="tag">CLI</span>
-                                <span class="tag featured-tag">★ 12</span>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Pacboost</h3>
-                        <p class="project-description">
-                            Extreem snelle front-end voor de pacman package manager.
-                        </p>
-                        <a href="https://github.com/compiledkernel-idk/pacboost" target="_blank" class="project-link">
-                            <span>Bekijk op GitHub</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
+        <!-- About Window (Notepad) -->
+        <div class="window-wrapper" id="about">
+            <div class="window" style="width: 500px; margin: 0 auto;">
+                <div class="title-bar">
+                    <div class="title-bar-text">About.txt - Notepad</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
                     </div>
-                </article>
-
-                <!-- Projects Grid -->
-                <div class="projects-grid">
-                    <article class="project-card glass-card">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Assembly</span>
-                                <span class="tag">Game</span>
-                                <span class="tag featured-tag">★ 2</span>
-                            </div>
-                            <h3 class="project-title">Void-Drifter</h3>
-                            <p class="project-description">3D space shooter in x86-64 assembly.</p>
-                            <a href="https://github.com/compiledkernel-idk/Void-Drifter" target="_blank"
-                                class="project-link">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card glass-card">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Rust</span>
-                                <span class="tag">CLI</span>
-                                <span class="tag featured-tag">★ 2</span>
-                            </div>
-                            <h3 class="project-title">kdownload</h3>
-                            <p class="project-description">Razendsnelle download manager in Rust.</p>
-                            <a href="https://github.com/compiledkernel-idk/kdownload" target="_blank"
-                                class="project-link">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card glass-card">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Shell</span>
-                                <span class="tag">Privacy</span>
-                                <span class="tag featured-tag">★ 1</span>
-                            </div>
-                            <h3 class="project-title">DarkFox</h3>
-                            <p class="project-description">Privacy-first browser op Firefox Gecko.</p>
-                            <a href="https://github.com/compiledkernel-idk/DarkFox" target="_blank"
-                                class="project-link">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card glass-card">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">C</span>
-                                <span class="tag">OS</span>
-                                <span class="tag featured-tag">★ 1</span>
-                            </div>
-                            <h3 class="project-title">barraOS</h3>
-                            <p class="project-description">Source code van barraOS.</p>
-                            <a href="https://github.com/compiledkernel-idk/barraos" target="_blank"
-                                class="project-link">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card glass-card">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Rust</span>
-                                <span class="tag">Bevy</span>
-                                <span class="tag">Game</span>
-                            </div>
-                            <h3 class="project-title">Bas Veeg Arc</h3>
-                            <p class="project-description">Actie game gemaakt voor Bas.</p>
-                            <a href="https://github.com/compiledkernel-idk/bas-veeg-arc" target="_blank"
-                                class="project-link">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card glass-card more-projects">
-                        <div class="card-glow"></div>
-                        <div class="project-content">
-                            <h3 class="project-title">Meer projecten</h3>
-                            <p class="project-description">Bekijk al mijn repos op GitHub.</p>
-                            <a href="https://github.com/compiledkernel-idk?tab=repositories" target="_blank"
-                                class="project-link">
-                                <span>Alle repos</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
+                </div>
+                <div class="window-body" style="background: white; color: black; min-height: 200px;">
+                    <ul class="tree-view" style="border: none;">
+                        <li class="typing-reveal" data-typing-speed="20" style="font-family: 'Courier New', monospace;">
+                            <span data-i18n="about.intro">I am</span> Kernelbaba.<br>
+                            <br>
+                            <span data-i18n="about.p1">I share software, games and tools on GitHub.</span><br>
+                            <span data-i18n="about.p2">From package managers to games in Assembly.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="status-bar">
+                    <p class="status-bar-field">Ln 1, Col 1</p>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Projects Window (Explorer) -->
+        <div class="window-wrapper" id="projects">
+            <div class="window" style="width: 600px; margin: 0 auto;">
+                <div class="title-bar">
+                    <div class="title-bar-text">C:\Projects</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <p>6 object(s)</p>
+                    <ul class="tree-view project-list">
+                        <!-- Featured -->
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/pacboost" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" alt="icon">
+                                <strong>pacboost</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.pacboost">Extremely fast frontend
+                                    for
+                                    pacman</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/Void-Drifter" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/game_freecell-1.png" alt="icon">
+                                <strong>Void-Drifter</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.voidDrifter">3D space shooter
+                                    (ASM)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/kdownload" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/download-0.png" alt="icon">
+                                <strong>kdownload</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.kdownload">Fast download
+                                    manager</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/DarkFox" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/msie1-3.png" alt="icon">
+                                <strong>DarkFox</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.darkfox">Privacy browser</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/barraos" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="icon">
+                                <strong>barraOS</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.barraos">Custom OS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk/bas-veeg-arc" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/joystick-0.png" alt="icon">
+                                <strong>bas-veeg-arc</strong>
+                                <span class="desc typing-reveal" data-i18n="projects.basveeg">Action game</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/compiledkernel-idk?tab=repositories" target="_blank">
+                                <img src="https://win98icons.alexmeub.com/icons/png/directory-0.png" alt="icon">
+                                <strong>See More...</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="status-bar">
+                    <p class="status-bar-field">6 object(s)</p>
+                    <p class="status-bar-field">1.2 MB</p>
+                    <p class="status-bar-field">My Computer</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="brand-row">
-                        <img src="icon.svg" alt="Logo" width="24" height="24" class="footer-icon">
-                        <span class="footer-logo">KERNELBABA</span>
-                    </div>
-                    <p>Open source</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#hero" class="footer-link">Home</a>
-                    <a href="#about" class="footer-link">Over</a>
-                    <a href="#projects" class="footer-link">Projecten</a>
-                    <a href="https://github.com/compiledkernel-idk" target="_blank" class="footer-link">GitHub</a>
-                </div>
-                <div class="footer-bottom">
+            <div class="window" style="width: 300px; margin: 0 auto; text-align: center;">
+                <div class="window-body">
                     <p>&copy; 2026 Kernelbaba</p>
                 </div>
             </div>
         </footer>
+
     </main>
 
     <script src="script.js"></script>
